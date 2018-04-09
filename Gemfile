@@ -54,4 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0'
 #JQUERY
 gem 'jquery-rails'
-
+# HTTP client
+gem 'httparty'
+# Figaro for protect the API key
+gem 'figaro' 
