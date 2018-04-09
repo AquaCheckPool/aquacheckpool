@@ -23,17 +23,17 @@ class PoolsController < ApplicationController
 
   #SHOW PH DATA HISTORY
   def show_history_ph 
-    @ph_history = @pool.ph.order(created_at: :desc).last(10)
+    @ph_history = @pool.ph.order(created_at: :desc).limit(10)
   end
 
   #SHOW CL2 DATA HISTORY
   def show_history_cl2 
-    @cl2_history = @pool.cl2.order(created_at: :desc).last(10)
+    @cl2_history = @pool.cl2.order(created_at: :desc).limit(10)
   end
 
   #SHOW TEMPERATURE DATA HISTORY
   def show_history_temp 
-    @temp_history = @pool.temp.order(created_at: :desc).last(10)
+    @temp_history = @pool.temp.order(created_at: :desc).limit(10)
   end
 
   # POST /pools
