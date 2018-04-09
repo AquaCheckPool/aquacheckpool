@@ -1,5 +1,5 @@
 class PoolsController < ApplicationController
-  before_action :set_pool, only: [:show, :edit, :update, :destroy]
+  before_action :set_pool, only: [:show, :edit, :update, :destroy, :show_history_ph, :show_history_cl2, :show_history_temp]
 
   # GET /pools
   # GET /pools.json
@@ -19,6 +19,21 @@ class PoolsController < ApplicationController
 
   # GET /pools/1/edit
   def edit
+  end
+
+  #SHOW PH DATA HISTORY
+  def show_history_ph 
+    @ph_history = @pool.ph.order(created_at: :desc).last(10)
+  end
+
+  #SHOW CL2 DATA HISTORY
+  def show_history_cl2 
+    @cl2_history = @pool.cl2.order(created_at: :desc).last(10)
+  end
+
+  #SHOW TEMPERATURE DATA HISTORY
+  def show_history_temp 
+    @temp_history = @pool.temp.order(created_at: :desc).last(10)
   end
 
   # POST /pools

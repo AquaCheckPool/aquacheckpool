@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+
+  <div class="col-md-6">
+
+      <div class="container">
+        <br>
+        <h3><%= 'HISTORIAL CLORO' %></h3>
+        <table class="table table-bordered table-info">
+          <thead class="thead-light">
+            <tr>
+              <th>VALOR</th>
+              <th>FECHA</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @cl2_history.each do |cl2| %>
+                <tr>
+                    <td><%= cl2.value %></td>
+                    <td><%= cl2.created_at %></td>
+                </tr>
+            <% end %>    
+          </tbody>
+        </table>
+      </div> 
+
+  </div>  
+
+</div>  

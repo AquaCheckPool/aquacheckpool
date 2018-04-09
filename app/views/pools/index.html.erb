@@ -1,42 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>AQUA CHECK POOL</h1>
+<div class="row">
 
-<% @pools.each do |pool| %>
-  <div class="container">
-    <br>
-    <h3><%= pool.name %></h3>
-    <table>
-      <thead>
-        <tr>
-          <th>PARÁMETRO</th>
-          <th>VALOR</th>
-          <th>FECHA</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+  <div class="col-md-8">
 
-      <tbody>
-        <tr>
-          <td><%= link_to 'PH', edit_pool_path(pool) %></td>
-          <td><%= pool.last_ph.value %></td>
-          <td><%= pool.last_ph.created_at %></td>
-        </tr>
+    <% @pools.each do |pool| %>
+      <div class="container">
+        <br>
+        <h3><%= pool.name %></h3>
+        <table class="table table-bordered table-info">
+          <thead class="thead-dark">
+            <tr>
+              <th>PARÁMETRO</th>
+              <th>VALOR</th>
+              <th>FECHA</th>
+            </tr>
+          </thead>
 
-        <tr>
-          <td><%= link_to 'CLORO', edit_pool_path(pool) %></td>
-          <td><%= pool.last_cl2.value %></td>
-          <td><%= pool.last_cl2.created_at %></td>
-        </tr>
+          <tbody>
+            <tr>
+              <td><%= link_to 'PH', ph_pool_path(pool) %></td>
+              <td><%= pool.last_ph.value %></td>
+              <td><%= pool.last_ph.created_at %></td>
+            </tr>
 
-        <tr>
-          <td><%= link_to 'TEMPERATURA', edit_pool_path(pool) %></td>
-          <td><%= pool.last_temp.value %></td>
-          <td><%= pool.last_temp.created_at %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<% end %>
+            <tr>
+              <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
+              <td><%= pool.last_cl2.value %></td>
+              <td><%= pool.last_cl2.created_at %></td>
+            </tr>
+
+            <tr>
+              <td><%= link_to 'TEMPERATURA', temp_pool_path(pool) %></td>
+              <td><%= pool.last_temp.value %></td>
+              <td><%= pool.last_temp.created_at %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+
+  </div>  
+
+</div>  
 
 <%= link_to 'Nueva piscina', new_pool_path %>
