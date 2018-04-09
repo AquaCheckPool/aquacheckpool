@@ -26,13 +26,13 @@
 
             <tr>
               <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
-              <td><%= pool.last_cl2.value %></td>
+              <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
               <td><%= pool.last_cl2.created_at %></td>
             </tr>
 
             <tr>
               <td><%= link_to 'TEMPERATURA', temp_pool_path(pool) %></td>
-              <td><%= pool.last_temp.value %></td>
+              <td><%= pool.last_temp.value.to_s + ' ºC' %></td>
               <td><%= pool.last_temp.created_at %></td>
             </tr>
           </tbody>
