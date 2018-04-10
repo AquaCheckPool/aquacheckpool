@@ -58,3 +58,6 @@ gem 'jquery-rails'
 gem 'httparty'
 # Figaro for protect the API key
 gem 'figaro' 
+#Devise
+gem 'devise'
+gem 'devise-i18n'

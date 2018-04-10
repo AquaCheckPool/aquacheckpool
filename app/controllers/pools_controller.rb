@@ -1,5 +1,7 @@
 class PoolsController < ApplicationController
   before_action :set_pool, only: [:show, :edit, :update, :destroy, :show_history_ph, :show_history_cl2, :show_history_temp]
+  before_action :authenticate_admin!
+  skip_before_action :authenticate_admin!, only: [:index, :show, :show_history_ph, :show_history_cl2, :show_history_temp]
 
   # GET /pools
   # GET /pools.json

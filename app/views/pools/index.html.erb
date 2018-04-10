@@ -17,23 +17,41 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td><%= link_to 'PH', ph_pool_path(pool) %></td>
-              <td><%= pool.last_ph.value %></td>
-              <td><%= pool.last_ph.created_at %></td>
+          <tbody>   
+            <tr>             
+              <% if pool.last_ph %>
+                <td><%= link_to 'PH', ph_pool_path(pool) %></td>
+                <td><%= pool.last_ph.value %></td>
+                <td><%= pool.last_ph.created_at %></td>
+              <% else %>
+                <td>PH</td>
+                <td>-</td>
+                <td>-</td>
+              <% end %>
             </tr>
 
             <tr>
-              <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
-              <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
-              <td><%= pool.last_cl2.created_at %></td>
+              <% if pool.last_cl2 %>
+                <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
+                <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
+                <td><%= pool.last_cl2.created_at %></td>
+              <% else %>
+                <td>CLORO</td>
+                <td>-</td>
+                <td>-</td>
+              <% end %>
             </tr>
 
             <tr>
-              <td><%= link_to 'TEMPERATURA', temp_pool_path(pool) %></td>
-              <td><%= pool.last_temp.value.to_s + ' ºC' %></td>
-              <td><%= pool.last_temp.created_at %></td>
+              <% if pool.last_temp %>
+                <td><%= link_to 'TEMPERATURA', temp_pool_path(pool) %></td>
+                <td><%= pool.last_temp.value.to_s + ' ºC' %></td>
+                <td><%= pool.last_temp.created_at %></td>
+              <% else %>
+                <td>TEMPERATURA</td>
+                <td>-</td>
+                <td>-</td>
+              <% end %>
             </tr>
           </tbody>
         </table>
