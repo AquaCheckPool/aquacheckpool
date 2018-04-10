@@ -2,7 +2,7 @@
 
 <div class="row">
 
-  <div class="col-md-7">
+  <div class="col-md-8 offset-md-2">
 
     <% @pools.each do |pool| %>
       <div class="container">
@@ -26,7 +26,7 @@
               <% end %>           
                   <td><%= link_to 'PH', ph_pool_path(pool) %></td> 
                   <td><%= pool.last_ph.value %></td>
-                  <td><%= pool.last_ph.created_at %></td>
+                  <td><%= pool.last_ph.created_at.strftime("%d-%m-%Y  %H:%M:%S") %></td>
                 </tr>
             <% else %>
               <tr> 
@@ -44,7 +44,7 @@
               <% end %>
                   <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
                   <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
-                  <td><%= pool.last_cl2.created_at %></td>
+                  <td><%= pool.last_cl2.created_at.strftime("%d-%m-%Y  %H:%M:%S") %></td>
                 </tr>
             <% else %>
               <tr>
@@ -58,7 +58,7 @@
               <% if pool.last_temp %>
                 <td><%= link_to 'TEMPERATURA', temp_pool_path(pool) %></td>
                 <td><%= pool.last_temp.value.to_s + ' ºC' %></td>
-                <td><%= pool.last_temp.created_at %></td>
+                <td><%= pool.last_temp.created_at.strftime("%d-%m-%Y  %H:%M:%S") %></td>
               <% else %>
                 <td>TEMPERATURA</td>
                 <td>-</td>

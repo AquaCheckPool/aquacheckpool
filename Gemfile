@@ -63,3 +63,5 @@ gem 'figaro'
 #Devise
 gem 'devise'
 gem 'devise-i18n'
+#Bar chart
+gem 'chart-js-rails'

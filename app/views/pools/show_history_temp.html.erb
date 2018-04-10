@@ -20,7 +20,7 @@
             <% @temp_history.each do |temp| %>
                 <tr>
                     <td><%= temp.value %></td>
-                    <td><%= temp.created_at %></td>
+                    <td><%= temp.created_at.strftime("%d-%m-%Y  %H:%M:%S") %></td>
                 </tr>
             <% end %>    
           </tbody>
@@ -29,4 +29,31 @@
 
   </div>  
 
+  <div class="col-md-7 offset-md-1">
+    <canvas id="tempChart" width="400" height="280"></canvas>
+  </div>
+
 </div>  
+
+
+<script>
+  var ctx = document.getElementById('tempChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+          labels: ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10"],
+          datasets: [{
+              label: "Historial TEMPERATURA",
+              backgroundColor: 'rgb(190, 229, 235)',
+              borderColor: 'rgb(23, 162, 184)',
+              data: <%= @temp_history.pluck(:value) %>
+          }]
+      },
+
+      // Configuration options go here
+      options: {}
+  });
+</script>

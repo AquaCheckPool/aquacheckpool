@@ -3,7 +3,6 @@
 <div class="row">
 
   <div class="col-md-4">
-
       <div class="container">
         <br>
         <h3><%= @pool.name.upcase %></h3>
@@ -24,13 +23,41 @@
                 <tr>  
               <% end %> 
                   <td><%= ph.value %></td>
-                  <td><%= ph.created_at %></td>
+                  <td><%= ph.created_at.strftime("%d-%m-%Y  %H:%M:%S") %></td>
                 </tr>
             <% end %>    
           </tbody>
         </table>
       </div> 
-
   </div>  
 
+  <div class="col-md-7 offset-md-1">
+    <canvas id="phChart" width="400" height="280"></canvas>
+  </div>
+
 </div>  
+
+
+<script>
+  var ctx = document.getElementById('phChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+         // labels: <%= @ph_history.map{|ph|ph.created_at.strftime("%d-%m-%Y  %H:%M:%S")} %>,
+         // labels: <%= @ph_history.pluck(:id) %>,
+          labels: ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10"],
+          datasets: [{
+              label: "Historial PH",
+              backgroundColor: 'rgb(190, 229, 235)',
+              borderColor: 'rgb(23, 162, 184)',
+              data: <%= @ph_history.pluck(:value) %>
+          }]
+      },
+
+      // Configuration options go here
+      options: {}
+  });
+</script>
