@@ -27,9 +27,23 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:     'smtp.gmail.com',
+    port:        587,
+    domain:      'gmail.com',
+    user_name:   "#{ENV['gmail_un']}@gmail.com",
+    password:     "#{ENV['gmail_pw']}",
+    # usa la gema Figaro para ocultar tus UN & PW! 
+    authentication:  'plain',
+    enable_starttls_auto: true
+  }
+
+# NOTA: NO uses un email acct con una autenticación de dos pasos habilitada
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

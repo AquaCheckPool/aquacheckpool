@@ -88,4 +88,5 @@ class PoolsController < ApplicationController
     def pool_params
       params.require(:pool).permit(:id, :name)
     end
+
 end
