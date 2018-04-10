@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'pools/:id/cloro' => 'pools#show_history_cl2', as: 'cl2_pool' 
   get 'pools/:id/temp' => 'pools#show_history_temp', as: 'temp_pool' 
 
+  post 'api/add_pool_values' => 'api#add_pool_values'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'pools#index'

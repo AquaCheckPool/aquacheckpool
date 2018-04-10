@@ -17,30 +17,42 @@
             </tr>
           </thead>
 
-          <tbody>   
-            <tr>             
-              <% if pool.last_ph %>
-                <td><%= link_to 'PH', ph_pool_path(pool) %></td>
-                <td><%= pool.last_ph.value %></td>
-                <td><%= pool.last_ph.created_at %></td>
-              <% else %>
+          <tbody>
+            <% if pool.last_ph %>
+              <% if (pool.last_ph.value > Pool.max_ph) || (pool.last_ph.value < Pool.min_ph) %>
+                <tr class="table-danger"> 
+              <% else %>            
+                <tr>  
+              <% end %>           
+                  <td><%= link_to 'PH', ph_pool_path(pool) %></td> 
+                  <td><%= pool.last_ph.value %></td>
+                  <td><%= pool.last_ph.created_at %></td>
+                </tr>
+            <% else %>
+              <tr> 
                 <td>PH</td>
                 <td>-</td>
                 <td>-</td>
-              <% end %>
-            </tr>
-
-            <tr>
-              <% if pool.last_cl2 %>
-                <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
-                <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
-                <td><%= pool.last_cl2.created_at %></td>
+              </tr>  
+            <% end %>
+                
+            <% if pool.last_cl2 %>
+              <% if (pool.last_cl2.value > Pool.max_cl2) || (pool.last_cl2.value < Pool.min_cl2) %>
+                <tr class="table-danger">
               <% else %>
+                <tr>
+              <% end %>
+                  <td><%= link_to 'CLORO', cl2_pool_path(pool) %></td>
+                  <td><%= pool.last_cl2.value.to_s + ' mg/l' %></td>
+                  <td><%= pool.last_cl2.created_at %></td>
+                </tr>
+            <% else %>
+              <tr>
                 <td>CLORO</td>
                 <td>-</td>
                 <td>-</td>
-              <% end %>
-            </tr>
+              </tr> 
+            <% end %>
 
             <tr>
               <% if pool.last_temp %>

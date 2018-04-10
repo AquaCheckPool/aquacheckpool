@@ -18,9 +18,13 @@
 
           <tbody>
             <% @ph_history.each do |ph| %>
-                <tr>
-                    <td><%= ph.value %></td>
-                    <td><%= ph.created_at %></td>
+              <% if (ph.value > Pool.max_ph) || (ph.value < Pool.min_ph) %>            
+                <tr class="table-danger">                   
+              <% else %>            
+                <tr>  
+              <% end %> 
+                  <td><%= ph.value %></td>
+                  <td><%= ph.created_at %></td>
                 </tr>
             <% end %>    
           </tbody>

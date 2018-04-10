@@ -1,10 +1,10 @@
 class AdminMailer < ApplicationMailer
     default from: 'familiacarrerasdf@gmail.com'
  
-    def limits_alert_email(admin, pool, error)
+    def limits_alert_email(admin, pool, errors)
       @admin = admin
       @pool = pool
-      @error = error
-      mail(to: @admin.email, subject: 'Aviso: compruebe los valores de los parámetros de la piscina')
+      @errors = errors
+      mail(to: @admin.email, subject: 'Aviso: parámetros de piscina no válidos')
     end
 end

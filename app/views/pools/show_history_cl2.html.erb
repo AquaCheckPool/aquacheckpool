@@ -18,11 +18,15 @@
 
           <tbody>
             <% @cl2_history.each do |cl2| %>
-                <tr>
-                    <td><%= cl2.value %></td>
-                    <td><%= cl2.created_at %></td>
+              <% if (cl2.value > Pool.max_cl2) || (cl2.value < Pool.min_cl2) %>            
+                <tr class="table-danger">                   
+              <% else %>            
+                <tr>  
+              <% end %> 
+                  <td><%= cl2.value %></td>
+                  <td><%= cl2.created_at %></td>
                 </tr>
-            <% end %>    
+            <% end %>
           </tbody>
         </table>
       </div> 

@@ -1,7 +1,11 @@
-Bienvenid@ a AQUA CHECK POOL
-============================
+=================================
+ Notificación de AQUA CHECK POOL
+=================================
 
-Los valores de ciertos parámetros de la piscina <%= @pool.name %> están en valores críticos.
-<%= @error %>
+Hay ciertos parámetros de la piscina '<%= @pool.name %>' que presentan valores críticos.
 
-¡Por favor, revise cuanto antes!
+<% @errors.each do |error| %>
+    <%= error %>
+<% end %>
+
+¡Por favor, revise los parámetros cuanto antes!

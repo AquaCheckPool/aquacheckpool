@@ -21,9 +21,9 @@ class Pool < ApplicationRecord
         6.0
     end
     def self.max_cl2
-        2.5
+        3.5
     end
     def self.min_cl2
-        3.5
+        2.5
     end
 end

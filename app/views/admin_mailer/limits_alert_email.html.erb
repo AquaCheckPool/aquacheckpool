@@ -1,9 +1,10 @@
-<h1>Bienvenid@ a AQUA CHECK POOL</h1>
+<h2>Notificación de AQUA CHECK POOL</h2>
+<p>Hay ciertos parámetros de la piscina '<%= @pool.name %>' que presentan valores críticos.</p>
 <p>
-  Los valores de ciertos parámetros de la piscina <%= @pool.name %> están en valores críticos.
+    <code>
+        <% @errors.each do |error| %>
+            <%= error %> <br>
+        <% end %>
+    </code>
 </p>
-<p>
-    <code> <%= @error %> </code>
-</p>
-<br>
-<p>¡Por favor, revise cuanto antes!</p>
+<p>¡Por favor, revise los parámetros cuanto antes!</p>
