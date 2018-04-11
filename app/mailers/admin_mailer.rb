@@ -5,6 +5,6 @@ class AdminMailer < ApplicationMailer
       @admin = admin
       @pool = pool
       @errors = errors
-      mail(to: @admin.email, subject: 'Aviso: parámetros de piscina no válidos')
+      mail(to: @admin.email, subject: 'Aviso: parámetros de piscina FUERA DE RANGO!!!')
     end
 end

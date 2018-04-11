@@ -6,9 +6,12 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="<%= root_path %>">Piscinas <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Parámetros</a>
-      <a class="nav-item nav-link" href="#">Normativa</a>
-      <a class="nav-item nav-link" href="#">Consejos</a>
+      <!--<a class="nav-item nav-link" href="">Parámetros</a>-->
+      <%= link_to "Parametros", parametros_path, class: "nav-item nav-link" %>
+      <!--<a class="nav-item nav-link" href="#">Normativa</a>-->
+      <%= link_to "Normativa", normativa_path, class: "nav-item nav-link" %>
+      <!--<a class="nav-item nav-link" href="#">Consejos</a>-->
+      <%= link_to "Consejos", consejos_path, class: "nav-item nav-link" %>
       <a class="nav-item nav-link disabled" href="#">Administrador</a>
     </div>
   </div>
