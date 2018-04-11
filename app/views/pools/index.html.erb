@@ -1,7 +1,7 @@
+
+
+<div class="row fondo">
 <p id="notice"><%= notice %></p>
-
-<div class="row">
-
   <div class="col-md-8 offset-md-2">
 
     <% @pools.each do |pool| %>
@@ -71,7 +71,7 @@
     <% end %>
 
   </div>  
-
+<%= link_to 'Nueva piscina', new_pool_path %>
 </div>  
 
-<%= link_to 'Nueva piscina', new_pool_path %>
+
