@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'static/parametros'
+
+  get 'static/normativa'
+
+  get 'static/consejos'
+
   devise_for :admins
   resources :pools
   get 'pools/:id/ph' => 'pools#show_history_ph', as: 'ph_pool' 
