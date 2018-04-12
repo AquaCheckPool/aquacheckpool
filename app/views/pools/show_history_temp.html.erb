@@ -49,7 +49,7 @@
               label: "Historial TEMPERATURA",
               backgroundColor: 'rgb(190, 229, 235)',
               borderColor: 'rgb(23, 162, 184)',
-              data: <%= @temp_history.pluck(:value) %>
+              data: <%= @temp_history.pluck(:value).reverse %>
           }]
       },
 

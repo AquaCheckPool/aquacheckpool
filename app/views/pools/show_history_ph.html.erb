@@ -53,7 +53,7 @@
               label: "Historial PH",
               backgroundColor: 'rgb(190, 229, 235)',
               borderColor: 'rgb(23, 162, 184)',
-              data: <%= @ph_history.pluck(:value) %>
+              data: <%= @ph_history.pluck(:value).reverse %>
           }]
       },
 

@@ -53,7 +53,7 @@
               label: "Historial CLORO",
               backgroundColor: 'rgb(190, 229, 235)',
               borderColor: 'rgb(23, 162, 184)',
-              data: <%= @cl2_history.pluck(:value) %>
+              data: <%= @cl2_history.pluck(:value).reverse %>
           }]
       },
 
